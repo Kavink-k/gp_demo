@@ -458,27 +458,27 @@ const achievementsData = {
         links: [
           {
             text: "Undergraduate 2023",
-            href: "/assets/docs/departments/cse/syllabus/reg-syl-23.pdf",
+            href: "/assets/data/sample.pdf",
           },
           {
             text: "Undergraduate 2021",
-            href: "/assets/docs/departments/cse/syllabus/reg-syl-21.pdf",
+            href: "/assets/data/sample.pdf",
           },
           {
             text: "Undergraduate 2017",
-            href: "/assets/docs/departments/cse/syllabus/reg-syl-17.pdf",
+            href: "/assets/data/sample.pdf",
           },
           {
             text: "Postgraduate 2017",
-            href: "/assets/docs/departments/cse/syllabus/reg-syl-PG-17.pdf",
+            href: "/assets/data/sample.pdf",
           },
           {
             text: "Postgraduate 2021",
-            href: "/assets/docs/departments/cse/syllabus/reg-syl-PG-21.pdf",
+            href: "/assets/data/sample.pdf",
           },
           {
             text: "Postgraduate 2023",
-            href: "/assets/docs/departments/cse/syllabus/reg-syl-PG-23.pdf",
+            href: "/assets/data/sample.pdf",
           },
         ],
       },
@@ -675,7 +675,7 @@ const achievementsData = {
     links: [
       {
         text: "Faculty List ",
-        href: "/assets/images/Pharmacy_courses/cse/docs/sample.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -687,7 +687,7 @@ const achievementsData = {
     links: [
       {
         text: "Research and consultancy",
-        href: "/assets/docs/departments/cse/r&c/Research and Consultancy.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -699,15 +699,15 @@ const achievementsData = {
     links: [
       {
         text: "2023 - 2024 ODD SEM",
-        href: "/assets/docs/departments/cse/cal/23-24ood.pdf",
+        href: "/assets/data/sample.pdf",
       },
       {
         text: "2024 - 2025 ODD SEM",
-        href: "/assets/docs/departments/cse/cal/24-25ood.pdf",
+        href: "/assets/data/sample.pdf",
       },
       {
         text: "2023 - 2024 EVEN SEM",
-        href: "/assets/docs/departments/cse/cal/23-24even.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -723,11 +723,11 @@ const achievementsData = {
         links: [
           {
             text: "BOS Minutes 2023 ",
-            href: "/assets/docs/departments/cse/bos/2023.pdf",
+            href: "/assets/data/sample.pdf",
           },
           {
             text: "BOS Minutes 2024 ",
-            href: "/assets/docs/departments/cse/bos/2024.pdf",
+            href: "/assets/data/sample.pdf",
           },
         ],
       },
@@ -739,7 +739,7 @@ const achievementsData = {
         links: [
           {
             text: "BOS Members List",
-            href: "/assets/docs/departments/cse/bos/BOS-MEMBERS.pdf",
+            href: "/assets/data/sample.pdf",
           },
         ],
       },
@@ -934,7 +934,7 @@ const achievementsData = {
     links: [
       {
         text: "Magazine 2024-2025",
-        href: "/assets/docs/departments/cse/magazine/Magazine  2024-25.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -946,7 +946,7 @@ const achievementsData = {
     links: [
       {
         text: "E-resource",
-        href: "/assets/docs/departments/cse/eresource/E Resource.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -958,7 +958,7 @@ const achievementsData = {
     links: [
       {
         text: "Professional Society",
-        href: "/assets/images/Pharmacy_courses/cse/docs/sample.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -970,7 +970,7 @@ const achievementsData = {
     links: [
       {
         text: "Newsletter",
-        href: "/assets/docs/departments/cse/news/Newsletter 2024-25.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -982,7 +982,7 @@ const achievementsData = {
     links: [
       {
         text: "Testimonials",
-        href: "/assets/docs/departments/cse/testi/cse_testimonials.pdf",
+        href: "/assets/data/sample.pdf",
       },
     ],
   },
@@ -1042,6 +1042,25 @@ const achievementsData = {
     })),
   },
 };
+
+// Replace any PDF hrefs in the in-file achievementsData with the sample PDF path
+// This avoids manually changing every literal and keeps the data structure intact.
+function replacePdfLinks(obj: any) {
+  if (!obj || typeof obj !== "object") return;
+  if (Array.isArray(obj)) {
+    obj.forEach(replacePdfLinks);
+    return;
+  }
+  for (const key of Object.keys(obj)) {
+    const val = (obj as any)[key];
+    if (key === "href" && typeof val === "string" && val.toLowerCase().endsWith(".pdf")) {
+      (obj as any)[key] = "/assets/data/sample.pdf";
+    } else {
+      replacePdfLinks(val);
+    }
+  }
+}
+replacePdfLinks(achievementsData);
 
 // Helper function to find a content item by its key in the nested structure
 const findItemByKey = (key: string) => {

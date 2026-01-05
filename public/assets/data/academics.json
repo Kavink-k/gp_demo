@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "img": "/images/home/pharmaceuticalAnalysis.jpeg",
+    "duration": "4 Years",
+    "level": "Stream: Pharmacy",
+    "title": "Pharmaceutical Analysis",
+    "no_of_seats": "120",
+    "url": "aids"
+  },
+  {
+    "id": 2,
+    "img": "/images/home/pharmaceutics.jpeg",
+    "duration": "4 Years",    
+    "level": "Stream: Pharmacy",
+    "title": "Pharmaceutics",
+    "no_of_seats": "60",
+    "url": "it"
+  },
+  {
+    "id": 3,
+    "img": "/images/home/pharmacognosy.jpeg",
+    "duration": "4 Years",
+    "level": "Stream: Pharmacy",
+    "title": "Pharmacognosy",
+    "no_of_seats": "60",
+    "url": "bme"
+  },
+  {
+    "id": 4,
+    "img": "/images/home/pharmacology.jpg",
+    "duration": "4 Years",
+    "level": "Stream: Pharmacy",
+    "title": "Pharmacology",
+    "no_of_seats": "30",
+    "url": "agri"
+  },
+  {
+    "id": 5,
+    "img": "/images/home/pharmacypractice.jpeg",
+    "duration": "4 Years",
+    "level": "Stream: Pharmacy",
+    "title": "Pharmacy Practices",
+    "no_of_seats": "60",
+    "url": "cse"
+  },
+  {
+    "id": 6,
+    "img": "/images/home/pharmchemistry.jpeg",
+    "duration": "4 Years",
+    "level": "Stream: Pharmacy",
+    "title": "Pharm Chemistry",
+    "no_of_seats": "60",
+    "url": "ece"
+  }
+ 
+]

@@ -4,11 +4,10 @@
 /node_modules
 
 
-/public/
 # next.js
 /.next/
 /out/
-/public/
+
 
 # production
 /build

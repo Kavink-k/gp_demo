@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "category": "TN Startup",
+    "title": "Speaker on research importance at Shine Health Hackathon",
+    "image": "/images/events/G.P.Pharmacy-College28.jpg",
+    "href": "/news/why-research-matters",
+    "variant": "spotlight"
+  },
+  {
+    "id": 2,
+    "category": "Freshers orientation",
+    "title": "Award ceremony at Freshers Orientation 2022-2023",
+    "image": "/images/events/G.P.Pharmacy-College12.jpg",
+    "href": "/news/adam-johnson-returns",
+    "variant": "standard"
+  },
+  {
+    "id": 3,
+    "category": "University event",
+    "title": "Dignitaries in regalia at university event",
+    "image": "/images/events/G.P.Pharmacy-College21.jpg",
+    "href": "/news/materials-structure-model",
+    "variant": "standard"
+  },
+  {
+    "id": 4,
+    "category": "Staff lectures",
+    "title": "Staff session at Sri Shanmugha College, Pullipalayam",
+    "image": "/images/events/G.P.Pharmacy-College29.jpg",
+    "href": "/news/mcfaul-five-lessons",
+    "variant": "standard"
+  },
+  {
+    "id": 5,
+    "category": "GP Atmosphere",
+    "title": "GP recognized at Tamil Nadu ",
+    "image": "/images/events/G.P.Pharmacy-College34.jpg",
+    "href": "/news/genai-brain-diseases",
+    "variant": "standard"
+  },
+  {
+    "id": 6,
+    "category": "Campus",
+    "title": "GreenCampus with eco-friendly initiatives",
+    "image": "/images/events/G.P.Pharmacy-College18.jpg",
+    "href": "/news/tarpeh-macarthur",
+    "variant": "wide"
+  }
+]
