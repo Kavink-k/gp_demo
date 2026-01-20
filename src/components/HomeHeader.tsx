@@ -25,11 +25,19 @@ const navLinks = {
   //   { name: 'Medical Science & research', href: 'https://shanmugha.edu.in/Medical_Science&Research_College' },
   //   { name: 'Allied Health Science', href: 'https://shanmugha.edu.in/DHI_College' },
   // ],
-departments: [
+courses: [
     { name: "Bachelor of Pharmacy", href: "/departments/cse" },
     { name: "Diplomo in Pharmacy", href: "/departments/cse" },
     { name: "Doctor of Pharmacy", href: "/departments/cse" },
     { name: "Master of Pharmacy", href: "/departments/cse" },
+  ],
+    departments: [
+    { name: "Pharmaceutical Analysis", href: "/departments/cse" },
+    { name: "Pharmaceutics", href: "/departments/cse" },
+    { name: "Pharmacognosy", href: "/departments/cse" },
+    { name: "Pharmacology", href: "/departments/cse" },
+    { name: "Pharmacy Practices", href: "/departments/cse" },
+    { name: "Pharm Chemistry", href: "/departments/cse" },
   ],
   features: [
     { name: 'Facilities', href: '/features/facilities' },
@@ -57,14 +65,14 @@ export default function Header() {
     className="absolute top-0 left-0 w-full h-full pointer-events-none transition-all duration-500"
     style={{
       background: isScrolled
-        ? "#15803D" // solid red after scroll
+        ? "#1e2f5c" 
         : "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0))", // transparent gradient
     }}
   ></div>
 
   {/* Top info bar */}
   <div
-    className={`relative container mx-60 px-8  py-2 flex items-center justify-between transition-colors duration-500`}
+    className={`relative container mx-auto px-6  py-2 flex items-center justify-between transition-colors duration-500`}
   >
     <Link href="/" aria-label="GP">
       <Image
@@ -118,7 +126,7 @@ export default function Header() {
         <NavItem href="/" label="Home" isScrolled={isScrolled} />
         <NavItem href="/admission" label="Admission" isScrolled={isScrolled} />
         <Dropdown label="About" links={navLinks.about} isScrolled={isScrolled} />
-        {/* <Dropdown label="Our Institutions" links={navLinks.ourInstitutions} isScrolled={isScrolled} /> */}
+        <Dropdown label="Courses" links={navLinks.courses} isScrolled={isScrolled} />
         <Dropdown label="Departments" links={navLinks.departments} isScrolled={isScrolled} wide />
         <Dropdown label="Features" links={navLinks.features} isScrolled={isScrolled} />
         <NavItem label="Contact" href="/contact" isScrolled={isScrolled} />
@@ -151,19 +159,23 @@ function NavItem({
           transition-colors duration-300 ease-in-out
           ${
             isScrolled
-              ? "text-black hover:text-[#b60000]"
-              : "text-white hover:text-white/80"
+              ? "text-black hover:text-primary"
+              : "text-white hover:text-white"
           }
         `}
       >
         {label}
         {/* Underline */}
         <span
-          className={`absolute left-1/2 bottom-0 h-[2px] w-full 
-              ${isScrolled ? "bg-[#b60000]" : "bg-white"}
-              scale-x-0 group-hover:scale-x-100 
-              transition-transform duration-300 ease-in-out origin-center -translate-x-1/2`}
+          className={`
+            absolute left-1/2 bottom-0 h-[2px] w-0
+            ${isScrolled ? "bg-primary" : "bg-white"}
+            -translate-x-1/2
+            transition-all duration-300 ease-in-out
+            group-hover:w-full
+          `}
         />
+
       </Link>
     </li>
   );
@@ -188,7 +200,7 @@ function Dropdown({
         className={`flex items-center gap-1 font-semibold tracking-tight transition text-lg md:text-2xl relative
           ${
             isScrolled
-              ? "text-black hover:text-[#b60000]" // after scroll
+              ? "text-black hover:text-primary" // after scroll
               : "text-white hover:text-white" // static (top)
           }`}
       >
@@ -197,7 +209,7 @@ function Dropdown({
         {/* ✅ Dynamic underline animation */}
         <span
           className={`absolute left-1/2 bottom-0 h-[2px] w-full 
-            ${isScrolled ? "bg-[#b60000]" : "bg-white"} 
+            ${isScrolled ? "bg-primary" : "bg-white"} 
             scale-x-0 group-hover:scale-x-100 
             transition-transform duration-300 ease-in-out origin-center -translate-x-1/2`}
         />
@@ -211,11 +223,11 @@ function Dropdown({
           wide ? "w-72" : "w-60"
         }`}
       >
-        {links.map((link) => (
+        {links?.map((link) => (
           <Link
             key={link.name}
             href={link.href}
-            className="block px-4 py-2 text-left text-sm text-gray-800 hover:bg-[#b1040e] hover:text-white transition-colors duration-200 rounded-md"
+            className="block px-4 py-2 text-left text-sm text-gray-800 hover:bg-[#1e2f5c] hover:text-white transition-colors duration-200 rounded-md"
           >
             {link.name}
           </Link>

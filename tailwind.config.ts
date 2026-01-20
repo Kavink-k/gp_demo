@@ -26,14 +26,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
+
         // Global Primary Color Palette - Change here to update entire website
-        'primary': '#15803D',        // Main brand green
-        'primary-dark': '#166534',   // Darker green for backgrounds
-        'primary-darker': '#14532D', // Even darker for footer
-        'primary-light': '#22C55E',  // Lighter green for accents
-        'primary-hover': '#16A34A',  // Hover state color
-        'primary-foreground': '#FFFFFF', // White text on primary color
+             colors: {
+        primary: "#1e2f5c",
+        "primary-dark": "#18264a",
+        "primary-darker": "#121c36",
+        "primary-light": "#3a4b7a",
+        "primary-hover": "#2b3e6dff",
+        "primary-foreground": "#ffffff",
+   
+// White text on primary color
 
         // Semantic color names (alias to primary)
         'brand': 'rgb(var(--color-primary) / <alpha-value>)',
@@ -43,10 +46,14 @@ module.exports = {
       //   // OR if you want a custom name:
       //   // 'source-sans': ['"Source Sans Pro"', 'sans-serif'],
       // },
-      fontFamily: {
-  sans: ['"Source Sans Pro"', 'sans-serif'],
-  serif: ['"Crimson Text"', 'serif'], // Stanford-style serif font
+//       fontFamily: {
+//   sans: ['"Source Sans Pro"', 'sans-serif'],
+//   serif: ['"Crimson Text"', 'serif'], // Stanford-style serif font
+// },
+fontFamily: {
+  sans: ['Inter', 'sans-serif'],
 },
+
 
     },
   },

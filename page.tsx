@@ -1,268 +1,3 @@
-// "use client";
-
-// import { Hero } from "@/components/Hero";
-// import { useState } from "react";
-// import { Star, UserCheck, BookOpen, Info, Target, FlaskConical  } from "lucide-react";
-// import pharmacy_dept_data from "./cse-data";
-// import DataTable from "@/components/Datatable";
-// import dynamic from "next/dynamic";
-
-// /* ================= PDF VIEWER ================= */
-// const CustomPdfViewer = dynamic(() => import("@/components/CustomPdfViewer"), {
-//   ssr: false,
-// });
-
-// /* ---------- SMALL STAT COMPONENT ---------- */
-// const Stat = ({
-//   value,
-//   label,
-//   Icon,
-// }: {
-//   value: string;
-//   label: string;
-//   Icon?: React.ElementType;
-// }) => (
-//   <div className="text-center flex flex-col items-center">
-//     {Icon && <Icon className="w-8 h-8 mb-2 text-[#fbd304]" />}
-//     <p className="text-xl font-bold text-neutral-800">{value}</p>
-//     <p className="mt-1 text-sm text-neutral-600 font-semibold">{label}</p>
-//   </div>
-// );
-
-// /* ================= GET DATA FROM JSON ================= */
-// const aboutData = pharmacy_dept_data.find((i) => i.id === 1);
-// const visionMission = pharmacy_dept_data.find((i) => i.id === 2);
-
-// const outcomeData = pharmacy_dept_data.find((i) => i.id === 3);
-// const labData = pharmacy_dept_data.find((i) => i.id === 4);
-
-// // safe arrays
-// const outcomes = outcomeData?.Outcome ?? [];
-// const labs = labData?.Facilities ?? [];
-
-// export default function CseDepartmentPage() {
-//   const [activeTab, setActiveTab] = useState<"about" | "outcomes" | "labs">(
-//     "about"
-//   );
-
-//   return (
-//     <>
-//       {/* ================= HERO ================= */}
-//       <Hero
-//         // title="Bachelor of Pharmacy"
-//         // desc="To develop students with strong practical knowledge and professional responsibility."
-//         image="/assets/images/engineering_courses/bpharm.png"
-//       />
-
-//       {/* ================= STATS ================= */}
-//       <section className="bg-neutral-50 py-10">
-//         <div className="container mx-auto px-6">
-//           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-4xl mx-auto">
-//             <Stat Icon={Star} value="NBA Accredited" label="2020 – 2023" />
-//             <Stat
-//               Icon={BookOpen}
-//               value="MGR University"
-//               label="Permanent Affiliation"
-//             />
-//             <Stat Icon={UserCheck} value="60 Intake" label="B.Pharm Program" />
-//             <Stat Icon={UserCheck} value="18 Intake" label="M.Pharm Program" />
-//           </div>
-//         </div>
-//       </section>
-//       <section className="py-20">
-//         <div className="max-w-7xl mx-auto px-6">
-//           {/* ===== TITLE ===== */}
-//           <div className="text-center mb-14">
-//             <h2 className="text-3xl font-bold tracking-tight border-b-4 border-[#fbd304] inline-block pb-2">
-//               Vision & Mission
-//             </h2>
-//           </div>
-
-//           {/* ===== CONTENT LAYOUT ===== */}
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-//             {/* ---------- VISION ---------- */}
-//             <div className="md:ml-12 bg-[#F4F7FF] p-6 rounded-lg shadow-sm">
-//               <h3 className="text-2xl font-bold mb-4 text-[#1E2F5C]">
-//                 {visionMission?.vision_title}
-//               </h3>
-//               <ul className="space-y-2 text-neutral-700 text-base">
-//                 {(visionMission?.vision_points ?? []).map(
-//                   (item: string, i: number) => (
-//                     <li key={i} className="flex gap-2">
-//                       <span className="text-[#1E2F5C] font-bold">•</span>
-//                       <span>{item}</span>
-//                     </li>
-//                   )
-//                 )}
-//               </ul>
-//             </div>
-
-//             {/* ---------- CENTER IMAGE ---------- */}
-//             <div className="flex justify-center">
-//               <img
-//                 src="/assets/images/engineering_courses/mission.png"
-//                 alt="Vision and Mission"
-//                 className="max-w-xs md:max-w-sm"
-//               />
-//             </div>
-
-//             {/* ---------- MISSION ---------- */}
-//             <div className="md:-ml-6 bg-[#F4F7FF] p-6 rounded-lg shadow-sm">
-//               <h3 className="text-2xl font-bold mb-4 text-[#1E2F5C]">
-//                 {visionMission?.mission_title}
-//               </h3>
-//               <ul className="space-y-2 text-neutral-700 text-base">
-//                 {(visionMission?.mission_points ?? []).map(
-//                   (item: string, i: number) => (
-//                     <li key={i} className="flex gap-2">
-//                       <span className="text-[#1E2F5C] font-bold">•</span>
-//                       <span>{item}</span>
-//                     </li>
-//                   )
-//                 )}
-//               </ul>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* ================= ACHIEVEMENTS ================= */}
-//       <section className="bg-neutral-50 py-12 md:py-16">
-//         <div className="px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6">
-//             {/* ===== LEFT MENU ===== */}
-//             <div className="bg-[#1E2F5C] text-white rounded-lg p-3">
-//  <button
-//   onClick={() => setActiveTab("about")}
-//   className={`group w-full flex items-center gap-2 px-3 py-2 rounded mb-2
-//     ${
-//       activeTab === "about"
-//         ? "bg-white text-[#1E2F5C] font-semibold"
-//         : "text-white hover:bg-white hover:text-[#1E2F5C]"
-//     }`}
-// >
-//   <Info
-//     className={`
-//       w-4 h-4 transition-colors duration-200
-//       ${activeTab === "about" ? "text-[#fbd304]" : "text-white"}
-//       group-hover:text-[#fbd304]
-//     `}
-//   />
-//   About the Department
-// </button>
-
-// <button
-//   onClick={() => setActiveTab("outcomes")}
-//   className={`group w-full flex items-center gap-2 px-3 py-2 rounded mb-2
-//     ${
-//       activeTab === "outcomes"
-//         ? "bg-white text-[#1E2F5C] font-semibold"
-//         : "text-white hover:bg-white hover:text-[#1E2F5C]"
-//     }`}
-// >
-//   <Target
-//     className={`
-//       w-4 h-4 transition-colors duration-200
-//       ${activeTab === "outcomes" ? "text-[#fbd304]" : "text-white"}
-//       group-hover:text-[#fbd304]
-//     `}
-//   />
-//   Programme Outcomes
-// </button>
-
-//  <button
-//   onClick={() => setActiveTab("labs")}
-//   className={`group w-full flex items-center gap-2 px-3 py-2 rounded
-//     ${
-//       activeTab === "labs"
-//         ? "bg-white text-[#1E2F5C] font-semibold"
-//         : "text-white hover:bg-white hover:text-[#1E2F5C]"
-//     }`}
-// >
-//   <FlaskConical
-//     className={`
-//       w-4 h-4 transition-colors duration-200
-//       ${activeTab === "labs" ? "text-[#fbd304]" : "text-white"}
-//       group-hover:text-[#fbd304]
-//     `}
-//   />
-//   Laboratories
-// </button>
-
-//             </div>
-
-//             {/* ===== RIGHT CONTENT ===== */}
-//             <div className="bg-white p-6 rounded-lg shadow">
-//               {/* ================= ABOUT ================= */}
-//               {activeTab === "about" && aboutData && (
-//                 <div>
-//                   <h3 className="text-2xl font-bold mb-4">
-//                     About the Department
-//                   </h3>
-
-//                   <p className="mb-3 text-neutral-700">{aboutData.para1}</p>
-//                   <p className="mb-3 text-neutral-700">{aboutData.para2}</p>
-//                 </div>
-//               )}
-
-//               {/* ================= OUTCOMES ================= */}
-//               {activeTab === "outcomes" && (
-//                 <div>
-//                   <h3 className="text-2xl font-bold mb-4">
-//                     {outcomeData?.Outcome?.[0]?.Heading || "Programme Outcomes"}
-//                   </h3>
-
-//                   <div className="space-y-3">
-//                     {outcomeData?.Outcome?.[0]?._outcome?.map(
-//                       (o: any, i: number) => (
-//                         <p key={i}>
-//                           <strong>{o.category}:</strong> {o.description}
-//                         </p>
-//                       )
-//                     ) || (
-//                       <p className="text-neutral-500">
-//                         No outcome data available.
-//                       </p>
-//                     )}
-//                   </div>
-//                 </div>
-//               )}
-
-//               {/* ================= LABS ================= */}
-//               {activeTab === "labs" && (
-//                 <div>
-//                   <h3 className="text-2xl font-bold mb-4">
-//                     {labData?.Facilities?.[0]?.Heading ||
-//                       "Department Laboratories"}
-//                   </h3>
-
-//                   {labData?.Facilities?.[0]?.Table_heading &&
-//                   labData?.Facilities?.[0]?.Table_data ? (
-//                     <DataTable
-//                       // title="Department Laboratories"
-
-//                       columns={labData.Facilities[0].Table_heading.map(
-//                         (h: string, i: number) => ({
-//                           header: h,
-//                           accessorKey: i.toString(),
-//                         })
-//                       )}
-//                       data={labData.Facilities[0].Table_data}
-//                     />
-//                   ) : (
-//                     <p className="text-neutral-500">
-//                       No laboratory data available.
-//                     </p>
-//                   )}
-//                 </div>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
 "use client"; // This must be the very first line
 
 import { Hero } from "@/components/Hero";
@@ -277,9 +12,6 @@ import {
   X,
   FileText,
   ChevronDown,
-  Info,
-  Target,
-  FlaskConical,
 } from "lucide-react";
 
 import DataTable from "@/components/Datatable"; // Assuming DataTable is in your components folder
@@ -1283,22 +1015,23 @@ export default function CSEDepartmentPage() {
   const facultyDetailsRef = useRef<HTMLDivElement | null>(null);
   const userInteracted = useRef(false);
 
-  useEffect(() => {
-    if (!userInteracted.current) return;
 
-    if (activeTab && detailsRef.current) {
-      detailsRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [activeTab]);
-  useEffect(() => {
-    if (!activeTab && achievementsData) {
-      const firstKey = Object.keys(achievementsData)[0];
-      setActiveTab(firstKey);
-    }
-  }, [activeTab, achievementsData]);
+useEffect(() => {
+  if (!userInteracted.current) return;
+
+  if (activeTab && detailsRef.current) {
+    detailsRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}, [activeTab]);
+useEffect(() => {
+  if (!activeTab && achievementsData) {
+    const firstKey = Object.keys(achievementsData)[0];
+    setActiveTab(firstKey);
+  }
+}, [activeTab, achievementsData]);
 
   useEffect(() => {
     if (selectedFaculty && facultyDetailsRef.current) {
@@ -1336,42 +1069,17 @@ export default function CSEDepartmentPage() {
   }, []);
   // ===========================================================================
 
-  const handleItemClick = (key: string, item: any) => {
-    userInteracted.current = true;
+const handleItemClick = (key: string, item: any) => {
+  userInteracted.current = true;   
 
-    if (item.contentType === "folder") {
-      setExpandedKey((prevKey) => (prevKey === key ? null : key));
-    } else {
-      setActiveTab(key);
-      setPdfUrl(null);
-      if (key !== "faculty") setSelectedFaculty(null);
-    }
-  };
-  const navIcons: Record<string, any> = {
-    po_peo_pso: Target,
-    faculty: Info,
-    research_consultancy: FlaskConical,
-    academic_calendar: BookOpen,
-    mou: FileText,
-    bos: BookOpen,
-    bos_minutes: FileText,
-    bos_members: Info,
-    department_library: BookOpen,
-    students_participation: Star,
-    students_project: Star,
-    placement_details: Star,
-    distinguished_alumni: Info,
-    graduation_details: BookOpen,
-    faculty_participation: Info,
-    magazine: FileText,
-    e_resource: FileText,
-    professional_society: Info,
-    newsletter: FileText,
-    testimonials: Info,
-    valued_added_courses: BookOpen,
-    content_beyond_syllabus: BookOpen,
-    nptel: BookOpen,
-  };
+  if (item.contentType === "folder") {
+    setExpandedKey((prevKey) => (prevKey === key ? null : key));
+  } else {
+    setActiveTab(key);
+    setPdfUrl(null);
+    if (key !== "faculty") setSelectedFaculty(null);
+  }
+};
 
   const activeContent = activeTab ? findItemByKey(activeTab) : null;
   const renderNavItems = (items: object, isSublevel = false): ReactNode => {
@@ -1387,34 +1095,27 @@ export default function CSEDepartmentPage() {
               key={key}
               className={isSublevel ? "ml-4 border-l border-white/20 pl-2" : ""}
             >
-          
+              {/* ===== BUTTON ===== */}
               <button
                 onClick={() => handleItemClick(key, item)}
-                className={`group w-full flex items-center gap-2 px-3 py-2 rounded mb-1
+                className="w-full text-left focus:outline-none bg-transparent"
+              >
+                <div
+                  className={`
+    w-full px-3 py-1.5 rounded-md
+    transition-colors duration-150
+
     ${
       isActive
-        ? "bg-white text-[#1E2F5C] font-semibold"
-        : "text-white hover:bg-white hover:text-[#1E2F5C]"
-    }`}
-              >
-                {navIcons[key] && (
-                  <span className="flex-shrink-0">
-                    {(() => {
-                      const Icon = navIcons[key];
-                      return (
-                        <Icon
-                          className={`
-              w-4 h-4 transition-colors duration-200
-              ${isActive ? "text-[#fbd304]" : "text-white"}
-              group-hover:text-[#fbd304]
-            `}
-                        />
-                      );
-                    })()}
-                  </span>
-                )}
+        ? "bg-white text-[#162a52] font-semibold shadow-sm"
+        : "text-white"
+    }
 
-                <span className="text-sm">{item.title}</span>
+    ${!isActive ? "hover:bg-white hover:text-[#2b457a]" : ""}
+  `}
+                >
+                  {item.title}
+                </div>
               </button>
 
               {/* ===== SUB ITEMS ===== */}
@@ -1438,8 +1139,8 @@ export default function CSEDepartmentPage() {
   return (
     <>
       <Hero
-        // title="Bachelor of Pharmacy"
-        // desc="To develop Pharmacy , practical experience with  responsibility."
+        title="Bachelor of Pharmacy"
+        desc="To develop Pharmacy , practical experience with  responsibility."
         image="/assets/images/engineering_courses/bpharm.png"
       />
 
@@ -1462,10 +1163,10 @@ export default function CSEDepartmentPage() {
         </div>
       </section>
 
-      {/* <section className="bg-white py-12 md:py-20">
+      <section className="bg-white py-12 md:py-20">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-[#fdb304] pb-2">
+            <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-primary pb-2">
               Course Details
             </h2>
           </div>
@@ -1508,9 +1209,9 @@ export default function CSEDepartmentPage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      <section className="bg-neutral-50 py-12 md:py-20">
+      {/* <section className="bg-neutral-50 py-12 md:py-20">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-primary pb-2">
@@ -1550,12 +1251,194 @@ export default function CSEDepartmentPage() {
             </div>
           </div>
         </div>
-      </section>
-      {/* // achievement */}
+      </section> */}
+
+      {/* <section className="bg-neutral-50 py-12 md:py-20">
+        <div className="px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight text-center mb-4">
+            Computer Science and Pharmacy Achievements
+          </h2>
+          <p className="text-center text-lg text-neutral-600 mb-12 max-w-4xl mx-auto">
+            Explore the remarkable progress and recognition earned by our
+            students and faculty.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
+            <div className="w-full md:w-[280px] flex-shrink-0">
+              <div className="w-full not-prose">
+                {renderNavItems(achievementsData)}
+              </div>
+            </div>
+
+            {activeTab && activeContent && (
+              <div
+                ref={detailsRef}
+                className="w-full animate-fade-in mt-8 md:mt-0"
+              >
+                {pdfUrl ? (
+                  <div className="h-full flex flex-col">
+                    <div className="flex-shrink-0 mb-4">
+                      <button
+                        onClick={() => setPdfUrl(null)}
+                        className="flex items-center gap-2 text-primary font-semibold hover:underline"
+                      >
+                        <ArrowLeft size={16} /> Back to Details
+                      </button>
+                    </div>
+                    <div className="flex-grow rounded-lg overflow-hidden border border-neutral-200">
+                      {pdfUrl ? (
+                        <CustomPdfViewer file={pdfUrl} />
+                      ) : (
+                        <p className="text-center text-neutral-500">
+                          No PDF selected
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-neutral-50 p-6 sm:p-8 rounded-lg h-full">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="text-2xl font-bold text-neutral-800">
+                        {activeContent.title}
+                      </h3>
+                      <button
+                        onClick={() => {
+                          setActiveTab(null);
+                          setExpandedKey(null);
+                        }}
+                        className="p-2 rounded-full hover:bg-neutral-200 transition-colors"
+                      >
+                        <X size={20} className="text-neutral-600" />
+                      </button>
+                    </div>
+
+                    <p className="text-neutral-600 mb-6">
+                      {activeContent.description}
+                    </p>
+
+                    {activeContent.title === "Faculty" ? (
+                      <div className="mt-2">
+                        {selectedFaculty ? (
+                          <div
+                            ref={facultyDetailsRef}
+                            className="flex flex-col md:flex-row gap-6"
+                          >
+                            <div className="w-full md:w-2/3">
+                              <button
+                                onClick={() => setSelectedFaculty(null)}
+                                className="flex items-center gap-2 text-primary font-semibold hover:underline mb-4"
+                              >
+                                <ArrowLeft size={16} /> Back to Faculty List
+                              </button>
+                              <h1 className="text-4xl font-bold">
+                                {selectedFaculty.name}
+                              </h1>
+                              <p className="text-xl font-medium uppercase mt-2">
+                                | {selectedFaculty.occupation}
+                              </p>
+                              <p className="mt-4 text-justify">
+                                {selectedFaculty.bio ||
+                                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                              </p>
+                            </div>
+                            <div className="w-full md:w-1/3">
+                              <FacultyPhoto
+                                employeeId={selectedFaculty.employeeId}
+                                alt={selectedFaculty.name}
+                                className="w-64 h-auto object-cover"
+                              />
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {facultyCards.length === 0 && (
+                              <p className="text-neutral-500">
+                                No faculty data found for "{DEPARTMENT_NAME}".
+                              </p>
+                            )}
+                            {facultyCards.map((f, i) => (
+                              <div
+                                key={i}
+                                className="group overflow-hidden cursor-pointer transition-shadow duration-300 hover:shadow-lg border-b-2 border-neutral-700"
+                                onClick={() => setSelectedFaculty(f)}
+                              >
+                                <div className="relative h-58">
+                                  <FacultyPhoto
+                                    employeeId={f.employeeId}
+                                    alt={f.name}
+                                    className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+                                  />
+                                </div>
+                                <div className="p-4 text-left flex flex-col">
+                                  <p className="mt-3 font-semibold text-neutral-900 underline decoration-gray-300 decoration-2 transition-all duration-300 group-hover:decoration-gray-700 text-shadow-light-gray min-h-[3rem]">
+                                    {f.name}
+                                  </p>
+                                  <p className="text-sm text-neutral-600 font-medium inline-flex items-center mt-1">
+                                    <span className="font-bold text-2xl group-hover:text-gray-700 inline-block w-6 leading-normal">
+                                      |
+                                    </span>
+                                    {f.occupation}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <>
+                        {activeContent.contentType === "table" &&
+                          activeContent.tables &&
+                          activeContent.tables.length > 0 && (
+                            <div className="space-y-8">
+                              {activeContent.tables.map(
+                                (table: any, index: number) => (
+                                  <DataTable
+                                    key={index}
+                                    title={table.title}
+                                    columns={table.columns}
+                                    data={table.data}
+                                  />
+                                )
+                              )}
+                            </div>
+                          )}
+                        {activeContent.links &&
+                          activeContent.links.length > 0 && (
+                            <div className="flex flex-col gap-3 mt-6">
+                              <h4 className="font-semibold text-neutral-700">
+                                Downloads
+                              </h4>
+                              {activeContent.links.map(
+                                (link: any, i: number) => (
+                                  <button
+                                    key={i}
+                                    onClick={() => setPdfUrl(link.href)}
+                                    className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                                  >
+                                    <FileText size={16} />
+                                    {link.text}
+                                  </button>
+                                )
+                              )}
+                            </div>
+                          )}
+                        {activeContent.extraContent && (
+                          <div>{activeContent.extraContent}</div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </section> */}
       <section className="bg-neutral-50 py-6 md:py-20">
         <div className="px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-center mb-4">
-            Pharmacy Achievements
+            Computer Science and Pharmacy Achievements
           </h2>
           <p className="text-center text-lg text-neutral-600 mb-6 max-w-4xl mx-auto">
             Explore the remarkable progress and recognition earned by our

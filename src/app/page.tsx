@@ -87,7 +87,7 @@ function NewsCard({ item, className = "" }: { item: NewsItem; className?: string
             />
           </div>
           <div className="p-4">
-            <p className="text-[12px] font-extrabold uppercase tracking-wide text-[#b60000]">
+            <p className="text-[12px] font-extrabold uppercase tracking-wide text-[#1e2f5c]">
               {item.category}
             </p>
             <h3 className="mt-2 text-[18px] font-bold leading-snug group-hover:underline text-black">
@@ -174,12 +174,12 @@ fetch("/assets/data/upcomingEvents.json")
     />
     <div className="absolute inset-0 bg-black/30 -z-10" />
     <div className="text-center">
-      <h1 className="text-7xl md:text-8xl font-semibold font-serif" style={{color:'yellow'}}>GP</h1>
+      <h1 className="text-7xl md:text-8xl font-semibold font-serif" style={{color:'white'}}>GP</h1>
       <p className="mt-4 text-xl md:text-2xl max-w-2xl mx-auto">
         College of Pharmacy 
       </p>
     </div>
-    <div className="absolute bottom-0 w-full bg-primary py-3 text-center text-lg">
+    <div className="absolute bottom-0 w-full bg-[#1e2f5c] py-3 text-center text-lg">
       <a href="#mission" className="hover:underline">
         Explore GP ↓
       </a>
@@ -247,7 +247,7 @@ fetch("/assets/data/upcomingEvents.json")
             <div className="mt-12 text-center">
               <Link
                 href="/news"
-                className="inline-flex items-center justify-center rounded-md bg-[#b60000] px-8 py-3 text-lg font-semibold text-white hover:bg-[#8c0000] transition"
+                className="inline-flex items-center justify-center rounded-md bg-[#1e2f5c] px-8 py-3 text-lg font-semibold text-white hover:bg-primary-hover transition"
               >
                 More campus news
               </Link>
@@ -352,7 +352,7 @@ fetch("/assets/data/upcomingEvents.json")
             <div className="mt-8 text-center">
               <Link
                 href="/research"
-                className="inline-flex items-center justify-center rounded-md bg-[#b60000] px-8 py-3 text-lg font-semibold text-white hover:bg-[#8c0000] transition"
+                className="inline-flex items-center justify-center rounded-md bg-[#1e2f5c] px-8 py-3 text-lg font-semibold text-white hover:bg-[#8c0000] transition"
               >
                 More about research
               </Link>
@@ -402,7 +402,7 @@ fetch("/assets/data/upcomingEvents.json")
 
   {/* Content (extra top padding so it doesn't collide with the badge) */}
   <div className="p-5 pt-8">
-    <p className="text-[#b60000] text-[13px] font-extrabold uppercase tracking-wide mb-2">
+    <p className="text-[#1e2f5c] text-[13px] font-extrabold uppercase tracking-wide mb-2">
       {ev.category}
     </p>
     <h3 className="text-[18px] font-bold text-black leading-snug mb-2">

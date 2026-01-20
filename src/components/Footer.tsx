@@ -125,9 +125,9 @@ export default function Footer() {
             {/* <span className="font-bold text-lg mr-4">GP College of Pharmacy </span> */}
                       <Link href="/" aria-label="GP">
             <Image
-              src="/images/home/homelogo.png" // ✅ replace with your logo path
+              src="/GP-Logo-neww.png" // ✅ replace with your logo path
               alt="GP Logo"
-              width={180}
+              width={100}
               height={55}
               className="object-contain"
               priority
