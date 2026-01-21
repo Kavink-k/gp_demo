@@ -1,7 +1,7 @@
 "use client"; // This must be the very first line
 
 import Link from "next/link";
-import { Hero } from "@/components/Hero";
+import  Hero  from "@/components/Hero";
 import { useState } from "react";
 import { MapPin, Phone, Mail, Instagram, Linkedin, Youtube } from "lucide-react";
 

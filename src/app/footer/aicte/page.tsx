@@ -1,7 +1,7 @@
 "use client";
 
 
-import { Hero } from "@/components/Hero";
+import Hero from "@/components/Hero";
 import Image from "next/image";
 import { useState, ReactNode, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";

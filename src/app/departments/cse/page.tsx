@@ -1,6 +1,6 @@
 // "use client";
 
-// import { Hero } from "@/components/Hero";
+// import Hero from "@/components/Hero";
 // import { useState } from "react";
 // import { Star, UserCheck, BookOpen, Info, Target, FlaskConical  } from "lucide-react";
 // import pharmacy_dept_data from "./cse-data";
@@ -265,7 +265,7 @@
 // }
 "use client"; // This must be the very first line
 
-import { Hero } from "@/components/Hero";
+import Hero from "@/components/Hero";
 import Image from "next/image";
 import { useState, useRef, useEffect, ReactNode, useMemo } from "react";
 import dynamic from "next/dynamic";
@@ -1691,7 +1691,7 @@ export default function CSEDepartmentPage() {
                         {activeContent.contentType === "table" &&
                           activeContent.tables?.length > 0 && (
                             <div className="space-y-8">
-                              {activeContent.tables.map((table, index) => (
+                              {activeContent.tables.map((table: any, index: number) => (
                                 <DataTable
                                   key={index}
                                   title={table.title}
@@ -1707,7 +1707,7 @@ export default function CSEDepartmentPage() {
                             <h4 className="font-semibold text-neutral-700">
                               Downloads
                             </h4>
-                            {activeContent.links.map((link, i) => (
+                            {activeContent.links.map((link: { text: string; href: string }, i: number) => (
                               <button
                                 key={i}
                                 onClick={() => setPdfUrl(link.href)}

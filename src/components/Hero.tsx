@@ -1,17 +1,15 @@
-
-
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
   kicker?: string;
-  title: string;
+  title?: string;
   desc?: string;
   cta?: { label: string; href: string };
   image?: string;
 };
 
-export function Hero({ kicker, title, desc, cta, image }: Props) {
+export default function Hero({ kicker, title, desc, cta, image }: Props) {
   return (
     <section className="relative overflow-hidden  py-12 md:py-18">
       {image && (
