@@ -137,10 +137,10 @@ export default function ContactPage() {
                   target="_blank"
                   aria-label="YouTube"
                 >
-                  <Youtube
+                  {/* <Youtube
                     size={20}
                     className="text-primary hover:text-neutral-900 "
-                  />
+                  /> */}
                 </Link>
               </div>
             </div>

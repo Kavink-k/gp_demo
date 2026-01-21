@@ -27,7 +27,7 @@ const navLinks = {
     { name: "Pharm Chemistry", href: "/departments/cse" },
   ],
   features: [
-    { name: "Facilities", href: "/" },
+    { name: "Facilities", href: "/features/facilities" },
     
   ],
   // contact: [
@@ -55,13 +55,22 @@ export default function Header() {
           </Link>
 
           {/* Information bar (desktop) */}
-          <div className="hidden lg:flex items-center gap-5 text-white/90">
+          {/* <div className="hidden lg:flex items-center gap-5 text-white/90">
             <span className="font-extrabold">Information for:</span>
             <Link href="/Recognitions-Certificates" className="hover:underline">Recognitions-Certificates</Link>
             <Link href="/" className="hover:underline whitespace-nowrap">Anti Ragging</Link>
             <Link href="/footer/poshcell" className="hover:underline whitespace-nowrap">Posh Cell</Link>
             <Link href="/footer/feedback" className="hover:underline whitespace-nowrap">Feedback</Link>
             <Link href="/footer/aicte" className="hover:underline whitespace-nowrap">AICTE Approval Copies</Link>
+          </div> */}
+            <div className="hidden lg:flex items-center gap-5 text-white/90">
+            <span className="font-extrabold">Information for:</span>
+            <Link href="/assets/data/sample.pdf" className="hover:underline">Recognitions-Certificates</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Anti Ragging</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Feedback</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Posh Cell</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Feedback</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">AICTE Approval Copies</Link>
           </div>
         </div>
 

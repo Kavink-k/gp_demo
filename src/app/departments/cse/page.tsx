@@ -960,32 +960,32 @@ const achievementsData = {
       },
     ],
   },
-  department_library: {
-    title: "Department Library",
-    contentType: "table",
-    description:
-      (libraryItem as LibraryItem)?.Description ||
-      "Details of books, journals, and e-resources available in the Computer Science and Pharmacy departmental library.",
-    tables: [
-      {
-        title: "Department Library Collection",
-        columns: (libraryItem as LibraryItem)?.Library?.[0]?.Table_heading?.map(
-          (header, index) => ({
-            header,
-            accessorKey: index.toString(),
-          })
-        ) || [
-          { header: "S.No", accessorKey: "0" },
-          { header: "Acc No.", accessorKey: "1" },
-          { header: "Title", accessorKey: "2" },
-          { header: "Author", accessorKey: "3" },
-          { header: "Publisher", accessorKey: "4" },
-          { header: "Volumes", accessorKey: "5" },
-        ],
-        data: libraryData,
-      },
-    ],
-  },
+  // department_library: {
+  //   title: "Department Library",
+  //   contentType: "table",
+  //   description:
+  //     (libraryItem as LibraryItem)?.Description ||
+  //     "Details of books, journals, and e-resources available in the Computer Science and Pharmacy departmental library.",
+  //   tables: [
+  //     {
+  //       title: "Department Library Collection",
+  //       columns: (libraryItem as LibraryItem)?.Library?.[0]?.Table_heading?.map(
+  //         (header, index) => ({
+  //           header,
+  //           accessorKey: index.toString(),
+  //         })
+  //       ) || [
+  //         { header: "S.No", accessorKey: "0" },
+  //         { header: "Acc No.", accessorKey: "1" },
+  //         { header: "Title", accessorKey: "2" },
+  //         { header: "Author", accessorKey: "3" },
+  //         { header: "Publisher", accessorKey: "4" },
+  //         { header: "Volumes", accessorKey: "5" },
+  //       ],
+  //       data: libraryData,
+  //     },
+  //   ],
+  // },
   students_participation: {
     title: "Students Participation",
     contentType: "table",
@@ -1050,27 +1050,27 @@ const achievementsData = {
         data: item.Table_data || [],
       })),
   },
-  distinguished_alumni: {
-    title: "Distinguished Alumni",
-    contentType: "details",
-    description:
-      "Profiles of notable alumni who have excelled in their professional careers.",
-    extraContent: (
-      <div className="mt-10 space-y-8 text-lg text-neutral-700 leading-relaxed">
-        <div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/assets/images/Pharmacy_courses/cse/csealumni.png" // Fixed path
-              alt="Distinguished Alumni"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-md object-contain"
-            />
-          </div>
-        </div>
-      </div>
-    ),
-  },
+  // distinguished_alumni: {
+  //   title: "Distinguished Alumni",
+  //   contentType: "details",
+  //   description:
+  //     "Profiles of notable alumni who have excelled in their professional careers.",
+  //   extraContent: (
+  //     <div className="mt-10 space-y-8 text-lg text-neutral-700 leading-relaxed">
+  //       <div>
+  //         <div className="flex flex-col items-center">
+  //           <Image
+  //             src="/assets/images/Pharmacy_courses/cse/csealumni.png" // Fixed path
+  //             alt="Distinguished Alumni"
+  //             width={600}
+  //             height={400}
+  //             className="rounded-lg shadow-md object-contain"
+  //           />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   ),
+  // },
 
   graduation_details: {
     title: "Graduation Details",
@@ -1735,15 +1735,15 @@ export default function CSEDepartmentPage() {
 
       <section className="bg-brand-sand py-16 text-center">
         <div className="container">
-          <h3 className="text-sm uppercase tracking-wider text-neutral-600 font-semibold">
+          {/* <h3 className="text-sm uppercase tracking-wider text-neutral-600 font-semibold">
             Message From The
-          </h3>
+          </h3> */}
           <p className="text-2xl md:text-3xl font-bold mt-2 max-w-3xl mx-auto text-neutral-800">
             Head of the Department
           </p>
-          <p className="text-xl font-semibold mt-4">Dr. P. Nandhini</p>
+          <p className="text-xl font-semibold mt-4">Dr.S.K</p>
           <a
-            href="mailto:hod.cse@shanmugha.edu.in"
+            href="mailto:hod.pharm@gp.edu.in"
             className="btn btn-primary mt-6"
           >
             Contact HOD

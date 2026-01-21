@@ -275,7 +275,7 @@ const pharmacy_dept_data = [
       {
         heading: "Head of the Department | Department of Pharmacy",
         category: "Email",
-        description: "hod.pharmacy@shanmugha.edu.in",
+        description: "hod.pharmacy@gp.edu.in",
       },
     ],
   },

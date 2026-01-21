@@ -94,22 +94,22 @@ export default function Header() {
       {/* <Link href="https://aakam360.com/" target="_blank" className="hover:underline transition">
         Aakam360
       </Link> */}
-      <Link href="/Recognitions-Certificates" className="hover:underline">
+      <Link href="/assets/data/sample.pdf" className="hover:underline">
         Recognitions-Certificates
       </Link>
       {/* <Link href="/header/faculty-staff" className="hover:underline">
         Faculty &amp; Staff
       </Link> */}
-      <Link href="/footer/antiragging" className="hover:underline whitespace-nowrap">
+      <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">
         Anti Ragging
       </Link>
-      <Link href="/footer/poshcell" className="hover:underline whitespace-nowrap">
+      <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">
         Posh Cell
       </Link>
-      <Link href="/footer/feedback" className="hover:underline whitespace-nowrap">
+      <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">
         Feedback
       </Link>
-      <Link href="/footer/aicte" className="hover:underline whitespace-nowrap">
+      <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">
         AICTE Approval Copies
       </Link>
     </div>

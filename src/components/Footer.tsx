@@ -134,7 +134,16 @@ export default function Footer() {
             />
           </Link>
           </div>
-          <nav className="flex flex-wrap justify-center md:justify-start space-x-4 md:space-x-6">
+           <nav className="flex flex-wrap justify-center md:justify-start space-x-4 md:space-x-6">
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Anti Ragging</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Posh Cell</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Feedback</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">AICTE Approval Copies</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Privacy Policy</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Grievances</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">AICTE Mandatory Disclosure</Link>
+          </nav>
+          {/* <nav className="flex flex-wrap justify-center md:justify-start space-x-4 md:space-x-6">
             <Link href="/footer/antiragging" className="hover:underline whitespace-nowrap">Anti Ragging</Link>
             <Link href="/footer/poshcell" className="hover:underline whitespace-nowrap">Posh Cell</Link>
             <Link href="/footer/feedback" className="hover:underline whitespace-nowrap">Feedback</Link>
@@ -142,7 +151,7 @@ export default function Footer() {
             <Link href="/footer/privacy-policy" className="hover:underline whitespace-nowrap">Privacy Policy</Link>
             <Link href="/footer/grievance" className="hover:underline whitespace-nowrap">Grievances</Link>
             <Link href="/assets/docs/aicte/MANDATORY_DISCLOSURE_2025_26.pdf" className="hover:underline whitespace-nowrap">AICTE Mandatory Disclosure</Link>
-          </nav>
+          </nav> */}
         </div>
         <p className="container mx-auto mt-4 text-center md:text-left">
           © {new Date().getFullYear()} GP , Sankari, Tamil Nadu, India.

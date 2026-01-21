@@ -16,11 +16,11 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.395.0",
     "next": "14.2.4",
-    "pdfjs-dist": "^5.4.530",
+    "pdfjs-dist": "^3.11.174",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^10.1.0",
-    "react-pdf": "^10.3.0",
+    "react-pdf": "^7.7.1",
     "react-redux": "^9.2.0",
     "swiper": "^12.0.2",
     "tailwind-merge": "^2.3.0"
