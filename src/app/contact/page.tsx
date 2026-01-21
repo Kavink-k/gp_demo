@@ -37,7 +37,7 @@ export default function ContactPage() {
       <section className="bg-white py-12 md:py-20">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-[#22C55E] pb-2">
+            <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-primary pb-2">
               Contact Us
             </h2>
           </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 {/* Address */}
                 <div className="flex items-start space-x-3">
                   <MapPin
-                    className="text-[#22C55E] mt-1 flex-shrink-0"
+                    className="text-primary mt-1 flex-shrink-0"
                     size={20}
                   />
                   <div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                 {/* Email */}
                 <div className="flex items-center space-x-3">
                   <Mail
-                    className="text-[#22C55E] flex-shrink-0"
+                    className="text-primary flex-shrink-0"
                     size={20}
                   />
                   <div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                 {/* Phone */}
                 <div className="flex items-start space-x-3">
                   <Phone
-                    className="text-[#22C55E] mt-1 flex-shrink-0"
+                    className="text-primary mt-1 flex-shrink-0"
                     size={20}
                   />
                   <div>
@@ -137,10 +137,10 @@ export default function ContactPage() {
                   target="_blank"
                   aria-label="YouTube"
                 >
-                  <Youtube
+                  {/* <Youtube
                     size={20}
-                    className="text-[#22C55E] hover:text-neutral-900 "
-                  />
+                    className="text-primary hover:text-neutral-900 "
+                  /> */}
                 </Link>
               </div>
             </div>

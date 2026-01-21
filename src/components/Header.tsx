@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -13,15 +12,22 @@ const navLinks = {
     { name: "Mission", href: "/about#mission" },
     { name: "Vision", href: "/about#vision" },
   ],
-
-  departments: [
+  courses: [
     { name: "Bachelor of Pharmacy", href: "/departments/cse" },
     { name: "Diplomo in Pharmacy", href: "/departments/cse" },
     { name: "Doctor of Pharmacy", href: "/departments/cse" },
     { name: "Master of Pharmacy", href: "/departments/cse" },
   ],
+  departments: [
+    { name: "Pharmaceutical Analysis", href: "/departments/cse" },
+    { name: "Pharmaceutics", href: "/departments/cse" },
+    { name: "Pharmacognosy", href: "/departments/cse" },
+    { name: "Pharmacology", href: "/departments/cse" },
+    { name: "Pharmacy Practices", href: "/departments/cse" },
+    { name: "Pharm Chemistry", href: "/departments/cse" },
+  ],
   features: [
-    { name: "Facilities", href: "/" },
+    { name: "Facilities", href: "/features/facilities" },
     
   ],
   // contact: [
@@ -49,13 +55,22 @@ export default function Header() {
           </Link>
 
           {/* Information bar (desktop) */}
-          <div className="hidden lg:flex items-center gap-5 text-white/90">
+          {/* <div className="hidden lg:flex items-center gap-5 text-white/90">
             <span className="font-extrabold">Information for:</span>
             <Link href="/Recognitions-Certificates" className="hover:underline">Recognitions-Certificates</Link>
             <Link href="/" className="hover:underline whitespace-nowrap">Anti Ragging</Link>
             <Link href="/footer/poshcell" className="hover:underline whitespace-nowrap">Posh Cell</Link>
             <Link href="/footer/feedback" className="hover:underline whitespace-nowrap">Feedback</Link>
             <Link href="/footer/aicte" className="hover:underline whitespace-nowrap">AICTE Approval Copies</Link>
+          </div> */}
+            <div className="hidden lg:flex items-center gap-5 text-white/90">
+            <span className="font-extrabold">Information for:</span>
+            <Link href="/assets/data/sample.pdf" className="hover:underline">Recognitions-Certificates</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Anti Ragging</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Feedback</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Posh Cell</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">Feedback</Link>
+            <Link href="/assets/data/sample.pdf" className="hover:underline whitespace-nowrap">AICTE Approval Copies</Link>
           </div>
         </div>
 
@@ -83,7 +98,7 @@ export default function Header() {
             {/* <NavItem href="/about" label="About Us" /> */}
             <NavItem href="/admission" label="Admission" />
             <Dropdown label="About" links={navLinks.about} />
-            {/* <Dropdown label="Our Institutions" links={navLinks.ourInstitutions} /> */}
+            <Dropdown label="Courses" links={navLinks.courses} />
             <Dropdown label="Departments" links={navLinks.departments} wide />
             <Dropdown label="Features" links={navLinks.features} />
         <NavItem label="Contact" href="/contact"  />
@@ -138,7 +153,7 @@ function Dropdown({
           wide ? "w-72" : "w-60"
         }`}
       >
-        {links.map((link) => (
+        {links?.map((link) => (
           <Link
             key={link.name}
             href={link.href}

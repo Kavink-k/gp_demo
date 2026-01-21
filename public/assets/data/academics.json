@@ -6,7 +6,7 @@
     "level": "Stream: Pharmacy",
     "title": "Pharmaceutical Analysis",
     "no_of_seats": "120",
-    "url": "aids"
+    "url": "pharmaceuticalAnalysis"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "level": "Stream: Pharmacy",
     "title": "Pharmaceutics",
     "no_of_seats": "60",
-    "url": "it"
+    "url": "phramaceutics"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "level": "Stream: Pharmacy",
     "title": "Pharmacognosy",
     "no_of_seats": "60",
-    "url": "bme"
+    "url": "pharmacognosy"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "level": "Stream: Pharmacy",
     "title": "Pharmacology",
     "no_of_seats": "30",
-    "url": "agri"
+    "url": "Pharmacology"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "level": "Stream: Pharmacy",
     "title": "Pharmacy Practices",
     "no_of_seats": "60",
-    "url": "cse"
+    "url": "PharmacyPractices"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "level": "Stream: Pharmacy",
     "title": "Pharm Chemistry",
     "no_of_seats": "60",
-    "url": "ece"
+    "url": "pharmchemistry"
   }
  
 ]

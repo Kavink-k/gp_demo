@@ -1,3 +1,92 @@
+//const pharmacy_dept_data = [
+// {
+//   id: 1,
+//   para1:
+//     "The Department of Pharmacy is dedicated to providing quality education and training to prepare students for successful careers in the pharmaceutical and healthcare sectors. The Bachelor of Pharmacy (B.Pharm) programme offers a strong foundation in pharmaceutical sciences along with practical exposure to modern laboratory techniques, clinical practices, and industry standards.",
+
+//   para2:
+//     "The department emphasizes the development of technical skills, ethical values, and professional responsibility. Through classroom learning, laboratory sessions, industrial visits, and internships, students gain hands-on experience that bridges the gap between theory and real-world practice."
+// },
+
+// {
+//   id: 2,
+
+//   vision_title: "Our Vision",
+//   vision_points: [
+//     "Inclusive Education",
+//     "Skill Development",
+//     "Empowerment Through Education",
+//     "Professional Development",
+//     "Social Mobility"
+//   ],
+
+//   mission_title: "Our Mission",
+//   mission_points: [
+//     "Establishing a Center of Excellence",
+//     "Unwavering Quality in Education",
+//     "Commitment Without Compromise",
+//     "Comprehensive Pharmacy Education",
+//     "Focus on Student Success"
+//   ]
+// }
+// ,
+//   {
+//     id: 3,
+//     Outcome: [
+//       {
+//         Course: "B.Pharmacy",
+//         Heading: "PROGRAMME OUTCOMES",
+//         _outcome: [
+//           {
+//             category: "PO1 Pharmacy Knowledge",
+//             description:
+//               "Apply pharmaceutical sciences knowledge to solve healthcare and industry-related problems."
+//           },
+//           {
+//             category: "PO2 Problem Analysis",
+//             description:
+//               "Analyze pharmaceutical problems using scientific and research-based approaches."
+//           },
+//           {
+//             category: "PO3 Modern Tool Usage",
+//             description:
+//               "Use modern pharmaceutical instruments and tools effectively."
+//           },
+//           {
+//             category: "PO4 Ethics",
+//             description:
+//               "Practice pharmacy with ethical responsibility and professionalism."
+//           },
+//           {
+//             category: "PO5 Life-long Learning",
+//             description:
+//               "Engage in continuous professional development."
+//           }
+//         ]
+//       }
+//     ]
+//   },
+
+//   {
+//     id: 4,
+//     Facilities: [
+//       {
+//         Heading: "Department Laboratories",
+//         Table_heading: ["S.No", "Laboratory Name"],
+//         Table_data: [
+//           [1, "Pharmaceutics Laboratory"],
+//           [2, "Pharmaceutical Chemistry Laboratory"],
+//           [3, "Pharmacology Laboratory"],
+//           [4, "Pharmacognosy Laboratory"],
+//           [5, "Clinical Pharmacy Laboratory"]
+//         ]
+//       }
+//     ]
+//   }
+// ];
+
+// export default pharmacy_dept_data;
+
 const pharmacy_dept_data = [
   {
     id: 1,
@@ -186,7 +275,7 @@ const pharmacy_dept_data = [
       {
         heading: "Head of the Department | Department of Pharmacy",
         category: "Email",
-        description: "hod.pharmacy@shanmugha.edu.in",
+        description: "hod.pharmacy@gp.edu.in",
       },
     ],
   },
