@@ -13,12 +13,12 @@ type Props = {
 
 export function Hero({ kicker, title, desc, cta, image }: Props) {
   return (
-    <section className="relative overflow-hidden  py-16 md:py-24">
+    <section className="relative overflow-hidden  py-12 md:py-18">
       {image && (
         <div className="absolute inset-0 -z-10 py-26">
           <Image src={image} alt="" fill className="object-cover" />
           {/* This overlay helps with text readability on busy images */}
-          <div className="absolute inset-0 bg-white/70" />
+          {/* <div className="absolute inset-0 bg-white/70" /> */}
         </div>
       )}
       {/* --- CHANGES ARE IN THIS DIV --- */}
