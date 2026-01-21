@@ -17,7 +17,7 @@ import {
 import DataTable from "@/components/Datatable"; // Assuming DataTable is in your components folder
 
 // --- IMPORT EXTERNAL DATA ---
-import pharmacy_dept_data from "./cse-data.js";
+import pharmacy_dept_data from './src/app/departments/cse/cse-data';
 
 // --- TYPE DEFINITIONS FOR CSE DATA ---
 interface BaseItem {
@@ -1574,7 +1574,7 @@ const handleItemClick = (key: string, item: any) => {
                         {activeContent.contentType === "table" &&
                           activeContent.tables?.length > 0 && (
                             <div className="space-y-8">
-                              {activeContent.tables.map((table, index) => (
+                              {activeContent.tables.map((table: any, index: number) => (
                                 <DataTable
                                   key={index}
                                   title={table.title}
@@ -1590,7 +1590,7 @@ const handleItemClick = (key: string, item: any) => {
                             <h4 className="font-semibold text-neutral-700">
                               Downloads
                             </h4>
-                            {activeContent.links.map((link, i) => (
+                            {activeContent.links.map((link: any, i: number) => (
                               <button
                                 key={i}
                                 onClick={() => setPdfUrl(link.href)}

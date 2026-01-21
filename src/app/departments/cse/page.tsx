@@ -285,7 +285,7 @@ import {
 import DataTable from "@/components/Datatable"; // Assuming DataTable is in your components folder
 
 // --- IMPORT EXTERNAL DATA ---
-import pharmacy_dept_data from "./cse-data.js";
+import pharmacy_dept_data from "./cse-data";
 
 // --- TYPE DEFINITIONS FOR CSE DATA ---
 interface BaseItem {
