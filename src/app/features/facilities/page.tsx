@@ -1,6 +1,6 @@
 "use client"; // This must be the very first line
 
-import { Hero } from "@/components/Hero";
+import Hero from "@/components/Hero";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, ReactNode, useEffect, useRef } from "react";

@@ -1,6 +1,6 @@
 "use client"; // This must be the very first line
 
-import { Hero } from "@/components/Hero";
+import Hero from "@/components/Hero";
 import { useState, ReactNode } from "react";
 import { ArrowLeft, BookOpen, UserCheck, Star, X, FileText, ChevronDown } from "lucide-react";
 import { Button } from "@mui/material";

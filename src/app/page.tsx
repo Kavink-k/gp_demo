@@ -158,13 +158,31 @@ fetch("/assets/data/upcomingEvents.json")
 }, []);
 
 
+////
+const heroImages = [
+    "/images/home/slide3.png",
+  "/images/home/gp.png",
+  "/images/home/slide2.jpg",
+  "/images/home/slide4.png"
+];
+const [currentSlide, setCurrentSlide] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
+
+
 
   return (
     <main>
      {/* 1) Hero + Parallax stacking wrapper */}
 <div className="relative isolate">
   {/* Hero Section with sticky effect */}
-  <section className="sticky top-0 h-screen flex items-center justify-center text-white z-0">
+  {/* <section className="sticky top-0 h-screen flex items-center justify-center text-white z-0">
     <Image
       src="/images/home/gp.png"
       alt="Aerial view of GP campus"
@@ -184,7 +202,49 @@ fetch("/assets/data/upcomingEvents.json")
         Explore GP ↓
       </a>
     </div>
-  </section>
+  </section> */}
+  {/* 1) Hero Carousel */}
+
+
+<section className="sticky top-0 h-screen relative overflow-hidden text-white z-0">
+  {/* Auto-Sliding Background */}
+  <div className="absolute inset-0 -z-10">
+    {heroImages.map((src, index) => (
+      <Image
+        key={index}
+        src={src}
+        alt="Hero Slide"
+        fill
+        priority={index === 0}
+        className={`
+          object-cover transition-opacity duration-[1200ms]
+          ${index === currentSlide ? "opacity-100" : "opacity-0"}
+        `}
+      />
+    ))}
+  </div>
+
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/40 -z-10" />
+
+  {/* Hero Content */}
+  <div className="h-full flex flex-col items-center justify-center text-center px-4">
+    <h1 className="text-7xl md:text-8xl font-semibold font-serif">
+      GP
+    </h1>
+    <p className="mt-4 text-xl md:text-2xl max-w-2xl mx-auto">
+      College of Pharmacy
+    </p>
+  </div>
+
+  {/* Bottom Explore button */}
+  <div className="absolute bottom-0 w-full bg-[#1e2f5c] py-3 text-center text-lg">
+    <a href="#mission" className="hover:underline">
+      Explore GP ↓
+    </a>
+  </div>
+</section>
+
 
   {/* Mission section that scrolls OVER the hero */}
   <section
