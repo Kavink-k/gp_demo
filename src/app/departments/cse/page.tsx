@@ -1741,7 +1741,7 @@ export default function CSEDepartmentPage() {
           <p className="text-2xl md:text-3xl font-bold mt-2 max-w-3xl mx-auto text-neutral-800">
             Head of the Department
           </p>
-          <p className="text-xl font-semibold mt-4">Dr.S.K</p>
+          <p className="text-xl font-semibold mt-4">Dr.S.Kaviya</p>
           <a
             href="mailto:hod.pharm@gp.edu.in"
             className="btn btn-primary mt-6"

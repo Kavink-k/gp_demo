@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, ReactNode, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import {
-  ArrowLeft,
+  ArrowRight,
   BookOpen,
   UserCheck,
   Star,
@@ -14,12 +14,12 @@ import {
   FileText,
   FlaskConical,
   ChevronDown,
-   Target,
+  Target,
   Info,
   Bus,
   Droplet,
   GraduationCap,
-  Monitor
+  Monitor,
 } from "lucide-react";
 import DataTable from "@/components/Datatable";
 import ReactMarkdown from "react-markdown";
@@ -87,6 +87,8 @@ export default function FacilitiesPage() {
 
   const detailsRef = useRef<HTMLDivElement | null>(null);
   const userInteracted = useRef(false);
+  const [selectedCard, setSelectedCard] = useState<any | null>(null);
+const facilitiesTopRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!userInteracted.current) return;
@@ -99,21 +101,33 @@ export default function FacilitiesPage() {
     }
   }, [activeTab]);
 
- useEffect(() => {
-  if (loading) return; // wait for real data
+  useEffect(() => {
+    if (loading) return; // wait for real data
 
-  if (!activeTab && facilitiesData.length > 0) {
-    const first = facilitiesData[0];
+    if (!activeTab && facilitiesData.length > 0) {
+      const first = facilitiesData[0];
 
-    if (first.subItems?.length > 0) {
-      setExpandedKey(first.id);
-      setActiveTab(first.subItems[0].id);
-    } else {
-      setActiveTab(first.id);
+      if (first.subItems?.length > 0) {
+        setExpandedKey(first.id);
+        setActiveTab(first.subItems[0].id);
+      } else {
+        setActiveTab(first.id);
+      }
     }
-  }
-}, [facilitiesData, activeTab, loading]);
+  }, [facilitiesData, activeTab, loading]);
+useEffect(() => {
+  if (!selectedCard || !facilitiesTopRef.current) return;
 
+  const y =
+    facilitiesTopRef.current.getBoundingClientRect().top +
+    window.pageYOffset -
+    80; 
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+}, [selectedCard]);
 
   // Load data with error handling
   useEffect(() => {
@@ -134,17 +148,16 @@ export default function FacilitiesPage() {
   }, []);
 
   // Helper function to find a content item by its key
-const findItemByKey = (key: string, items = facilitiesData): any => {
-  for (const item of items) {
-    if (item.id === key) return item;
-    if (item.subItems) {
-      const found = findItemByKey(key, item.subItems);
-      if (found) return found;
+  const findItemByKey = (key: string, items = facilitiesData): any => {
+    for (const item of items) {
+      if (item.id === key) return item;
+      if (item.subItems) {
+        const found = findItemByKey(key, item.subItems);
+        if (found) return found;
+      }
     }
-  }
-  return null;
-};
-
+    return null;
+  };
 
   const handleItemClick = (key: string, item: any) => {
     userInteracted.current = true;
@@ -158,87 +171,86 @@ const findItemByKey = (key: string, items = facilitiesData): any => {
   };
 
   const activeContent = activeTab ? findItemByKey(activeTab) : null;
-const navIcons: Record<string, any> = {
-  faculty: Info,                 
-  "smart-classrooms": Monitor,   
-  "computer-center": BookOpen,   
-  laboratories: FlaskConical,    
-  hostel: GraduationCap,         
-  library: BookOpen,            
-  transport: Bus,                
-  water: Droplet                 
-};
+  const navIcons: Record<string, any> = {
+    faculty: Info,
+    "smart-classrooms": Monitor,
+    "computer-center": BookOpen,
+    laboratories: FlaskConical,
+    hostel: GraduationCap,
+    library: BookOpen,
+    transport: Bus,
+    water: Droplet,
+  };
 
-const renderNavItems = (items: any[], isSublevel = false): ReactNode => {
-  if (loading) {
-    return <div className="text-center py-4 text-white">Loading...</div>;
-  }
+  const renderNavItems = (items: any[], isSublevel = false): ReactNode => {
+    if (loading) {
+      return <div className="text-center py-4 text-white">Loading...</div>;
+    }
 
-  return (
-    <div className={`flex flex-col ${isSublevel ? "gap-1" : "gap-2"}`}>
-      {items.map((item: any) => {
-        const isExpanded = expandedKey === item.id;
-        const isActive = activeTab === item.id;
+    return (
+      <div className={`flex flex-col ${isSublevel ? "gap-1" : "gap-2"}`}>
+        {items.map((item: any) => {
+          const isExpanded = expandedKey === item.id;
+          const isActive = activeTab === item.id;
 
-        const Icon =
-          navIcons[item.id] || BookOpen; // default icon (no folders in your JSON)
+          const Icon = navIcons[item.id] || BookOpen; // default icon (no folders in your JSON)
 
-        return (
-          <div
-            key={item.id}
-            className={isSublevel ? "ml-4 border-l border-white/20 pl-2" : ""}
-          >
-            <button
-              onClick={() => handleItemClick(item.id, item)}
-              className={`group w-full flex items-center justify-between gap-2 px-3 py-2 rounded mb-1
+          return (
+            <div
+              key={item.id}
+              className={isSublevel ? "ml-4 border-l border-white/20 pl-2" : ""}
+            >
+              <button
+                onClick={() => handleItemClick(item.id, item)}
+                className={`group w-full flex items-center justify-between gap-2 px-3 py-2 rounded mb-1
               ${
                 isActive
                   ? "bg-white text-[#1E2F5C] font-semibold"
                   : "text-white hover:bg-white hover:text-[#1E2F5C]"
               }`}
-            >
-              <div className="flex items-center gap-2">
-                {Icon && (
-                  <Icon
-                    className={`
+              >
+                <div className="flex items-center gap-2">
+                  {Icon && (
+                    <Icon
+                      className={`
                       w-4 h-4 transition-colors duration-200
                       ${isActive ? "text-[#fbd304]" : "text-white"}
                       group-hover:text-[#fbd304]
                     `}
+                    />
+                  )}
+
+                  <span className="text-sm">{item.title}</span>
+                </div>
+
+                {/* Only show expand arrow if subItems actually exist */}
+                {item.subItems?.length > 0 && (
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-300 ${
+                      isExpanded ? "rotate-180" : ""
+                    }`}
                   />
                 )}
+              </button>
 
-                <span className="text-sm">{item.title}</span>
-              </div>
-
-              {/* Only show expand arrow if subItems actually exist */}
+              {/* Render sub-items only if present */}
               {item.subItems?.length > 0 && (
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-300 ${
-                    isExpanded ? "rotate-180" : ""
-                  }`}
-                />
-              )}
-            </button>
-
-            {/* Render sub-items only if present */}
-            {item.subItems?.length > 0 && (
-              <div
-                className={`
+                <div
+                  className={`
                   transition-[max-height] duration-300 ease-in-out overflow-hidden
                   ${isExpanded ? "max-h-96" : "max-h-0"}
                 `}
-              >
-                {renderNavItems(item.subItems, true)}
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+                >
+                  {renderNavItems(item.subItems, true)}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -421,127 +433,115 @@ const renderNavItems = (items: any[], isSublevel = false): ReactNode => {
             </div>
         </div>
       </section> */}
-      <section className="bg-neutral-50 py-6 md:py-20">
-        <div className="px-4 sm:px-6 lg:px-8">
+<section
+  className="bg-neutral-50 py-10 md:py-20"
+>
+        <div   ref={facilitiesTopRef}
+className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight text-center mb-4">
             Facilities
           </h2>
 
-        <p className="text-center text-lg text-neutral-600 mb-6 max-w-4xl mx-auto">
-  Our campus offers a wide range of modern facilities designed to support
-  academic excellence, innovation, and overall student well-being.
-</p>
+          <p className="text-center text-lg text-neutral-600 mb-12 max-w-4xl mx-auto">
+            Our campus offers a wide range of modern facilities designed to
+            support academic excellence, innovation, and overall student
+            well-being.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-4">
-            {/* ================= LEFT BLUE SIDEBAR ================= */}
-            <div className="w-full md:w-[280px] flex-shrink-0">
-              <div className="w-full not-prose bg-[#1E2F5C] text-white rounded-lg shadow-lg overflow-hidden p-2">
-                {renderNavItems(facilitiesData)}
-              </div>
-            </div>
+          {/* ===== MAIN LAYOUT GRID ===== */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            {/* ===== LEFT: CARD GRID ===== */}
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-2 gap-10 place-items-center transition-all duration-700 ${
+                selectedCard
+                  ? "lg:col-span-1 lg:grid-cols-1 lg:mt-4"
+                  : "lg:col-span-3 lg:grid-cols-3"
+              }`}
+            >
+              {facilitiesData.map((item: any, index: number) => {
+                const isActive = selectedCard?.id === item.id;
 
-            {/* ================= RIGHT CONTENT ================= */}
-            {activeTab && activeContent && (
-              <div
-                ref={detailsRef}
-                className="w-full animate-fade-in mt-8 md:mt-0"
-              >
-                {pdfUrl ? (
-                  <div className="h-full flex flex-col">
-                    <div className="flex-shrink-0 mb-4">
-                      <button
-                        onClick={() => setPdfUrl(null)}
-                        className="flex items-center gap-2 text-primary font-semibold hover:underline"
-                      >
-                        <ArrowLeft size={16} /> Back to Details
-                      </button>
+                if (selectedCard && !isActive) return null;
+
+                return (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      if (selectedCard?.id === item.id) return;
+                      setSelectedCard(item);
+                    }}
+                    className={`cursor-pointer bg-white border border-neutral-200 w-[340px]
+  transition-all duration-300
+  ${
+    isActive
+      ? "z-10 order-first ring-2 ring-primary animate-left-card"
+      : "hover:scale-105"
+  }`}
+                  >
+                    {/* IMAGE */}
+                    <div className="w-full h-[260px] overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
 
-                    <div className="flex-grow rounded-lg overflow-hidden border border-neutral-200">
-                      <CustomPdfViewer file={pdfUrl} />
-                    </div>
-                  </div>
-                ) : (
-                  <div className="bg-neutral-50 p-6 sm:p-8 rounded-lg h-full">
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-2xl font-bold text-neutral-800">
-                        {activeContent.title}
+                    {/* TEXT CONTENT */}
+                    <div className="p-6 min-h-[180px]">
+                      <h3 className="text-[18px] font-bold text-neutral-900 leading-snug mb-3">
+                        {item.title}
                       </h3>
 
-                      <button
-                        onClick={() => {
-                          setActiveTab(null);
-                          setExpandedKey(null);
+                      <p className="text-[14px] text-neutral-700 leading-relaxed mb-2 line-clamp-4">
+                        {item.shortDescription}
+                      </p>
+
+                      <span
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (selectedCard?.id === item.id) return;
+                          setSelectedCard(item);
                         }}
-                        className="p-2 rounded-full hover:bg-neutral-200 transition-colors"
+                        className="inline-flex items-center gap-1 text-primary text-sm font-medium cursor-pointer "
                       >
-                        <X size={20} className="text-neutral-600" />
-                      </button>
+                        Readmore
+                        <ArrowRight size={14} />
+                      </span>
                     </div>
-
-                    {/* ===== DESCRIPTION ===== */}
-                    {Array.isArray(activeContent.description) ? (
-                      activeContent.description.map(
-                        (paragraph: string, index: number) => (
-                          <div
-                            key={index}
-                            className="text-neutral-600 mb-6 text-base leading-relaxed text-justify"
-                          >
-                            <ReactMarkdown>{paragraph}</ReactMarkdown>
-                          </div>
-                        ),
-                      )
-                    ) : (
-                      <div className="text-neutral-600 mb-6 text-base leading-relaxed text-justify">
-                        <ReactMarkdown>
-                          {activeContent.description}
-                        </ReactMarkdown>
-                      </div>
-                    )}
-
-                    {/* ===== TABLES ===== */}
-                    {activeContent.contentType === "table" &&
-                      activeContent.tables?.length > 0 && (
-                        <div className="space-y-8">
-                          {activeContent.tables.map(
-                            (table: any, index: number) => (
-                              <DataTable
-                                key={index}
-                                title={table.title}
-                                columns={table.columns}
-                                data={table.data}
-                              />
-                            ),
-                          )}
-                        </div>
-                      )}
-
-                    {/* ===== DOWNLOADS ===== */}
-                    {activeContent.links?.length > 0 && (
-                      <div className="flex flex-col gap-3 mt-6">
-                        <h4 className="font-semibold text-neutral-700">
-                          Downloads
-                        </h4>
-
-                        {activeContent.links.map((link: any, i: number) => (
-                          <button
-                            key={i}
-                            onClick={() => setPdfUrl(link.href)}
-                            className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-                          >
-                            <FileText size={16} />
-                            {link.text}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* ===== EXTRA CONTENT ===== */}
-                    {activeContent.extraContent && (
-                      <div>{activeContent.extraContent}</div>
-                    )}
                   </div>
+                );
+              })}
+            </div>
+
+            {/* ===== RIGHT: DETAILS PANEL ===== */}
+            {selectedCard && (
+              <div className="bg-white border border-neutral-200 shadow-md p-8 animate-slide-up lg:col-span-2">
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4">
+                  {selectedCard.title}
+                </h3>
+
+                {Array.isArray(selectedCard.description) ? (
+                  selectedCard.description.map((para: string, i: number) => (
+                    <p
+                      key={i}
+                      className="text-neutral-700 leading-relaxed mb-4 text-sm"
+                    >
+                      {para}
+                    </p>
+                  ))
+                ) : (
+                  <p className="text-neutral-700 leading-relaxed mb-4 text-sm">
+                    {selectedCard.description}
+                  </p>
                 )}
+
+                <button
+                  onClick={() => setSelectedCard(null)}
+                  className="absolute top-4 right-4 inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                >
+                  <X size={16} />
+                </button>
               </div>
             )}
           </div>

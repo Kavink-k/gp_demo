@@ -3,7 +3,14 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { useState } from "react";
-import { MapPin, Phone, Mail, Instagram, Linkedin, Youtube } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Instagram,
+  Linkedin,
+  Youtube,
+} from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,7 +21,7 @@ export default function ContactPage() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,197 +35,192 @@ export default function ContactPage() {
 
   return (
     <>
-      <Hero
-        title="Contact Us"
-        desc="Reach out to GP College of Pharmacy for admissions, academic inquiries, research collaborations, and general information."
-        image="/assets/images/Pharmacy_courses/contact/contact.jpg"
-      />
+    <section
+      className="
+        relative h-[80vh]
+        pt-[140px]
+        flex items-center justify-center
+        px-4 text-white
+        overflow-hidden
+      "
+      style={{
+        backgroundImage: "url('/assets/images/contact/contact.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* DARK FADE OVERLAY */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      <section className="bg-white py-12 md:py-20">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-primary pb-2">
-              Contact Us
-            </h2>
-          </div>
+      {/* CONTENT */}
+      <div className="relative z-10 text-center max-w-4xl animate-fadeIn">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Contact Us
+        </h1>
 
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Column: Contact Details */}
-            <div className="space-y-6">
+        <p className="text-lg md:text-xl opacity-90">
+          Reach out to GP College of Pharmacy for admissions, academic inquiries, research collaborations, and general information.
+        </p>
+      </div>
+    </section>
+ <section className="bg-white py-12 md:py-20">
+  <div className="px-4 sm:px-6 lg:px-8">
+
+    {/* SECTION TITLE */}
+    <div className="text-center mb-10">
+      <h2 className="inline-block text-3xl font-bold tracking-tight border-b-4 border-primary pb-2">
+        Contact Us
+      </h2>
+    </div>
+
+    {/* GRID CONTAINER */}
+    <div className="max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        {/* LEFT CARD */}
+        <div
+          className="
+            bg-white rounded-xl shadow-lg
+            p-8 md:p-10
+            flex flex-col justify-center
+            animate-fade-in-right
+            transition-all duration-200
+            hover:shadow-2xl hover:-translate-y-1
+          "
+        >
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-semibold text-neutral-800 mb-4">
+                GP College of Pharmacy
+              </h3>
+              <p className="text-neutral-600 leading-relaxed">
+                GP College of Pharmacy is committed to excellence in
+                pharmaceutical education, research, and healthcare services.
+              </p>
+            </div>
+
+            {/* Address */}
+            <div className="flex items-start space-x-3">
+              <MapPin className="text-primary mt-1" size={20} />
               <div>
-                <h3 className="text-2xl font-semibold text-neutral-800 mb-4">
-                  GP College of Pharmacy
-                </h3>
-                <p className="text-neutral-600 leading-relaxed">
-                  GP College of Pharmacy is committed to excellence in
-                  pharmaceutical education, research, and healthcare services.
-                  The institution provides a student-centric learning
-                  environment with modern laboratories and industry-oriented
-                  training.
+                <p className="font-semibold text-neutral-800">Address</p>
+                <p className="text-neutral-600 text-sm">
+                  Vaniyambadi Main Road,<br />
+                  Mandalavadi (Vill & Po),<br />
+                  Jolarpet – 635851,<br />
+                  Tirupattur District,<br />
+                  Tamil Nadu
                 </p>
               </div>
-
-              <div className="space-y-4">
-                {/* Address */}
-                <div className="flex items-start space-x-3">
-                  <MapPin
-                    className="text-primary mt-1 flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-neutral-800">Address</p>
-                    <p className="text-neutral-600">
-                      Vaniyambadi Main Road,
-                      <br />
-                      Mandalavadi (Vill & Po),
-                      <br />
-                      Jolarpet – 635851,
-                      <br />
-                      Tirupattur Taluk & District,
-                      <br />
-                      Tamil Nadu, India
-                    </p>
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="flex items-center space-x-3">
-                  <Mail
-                    className="text-primary flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-neutral-800">Email</p>
-                    <p className="text-neutral-600">
-                      gppharmacycollege@gmail.com
-                    </p>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start space-x-3">
-                  <Phone
-                    className="text-primary mt-1 flex-shrink-0"
-                    size={20}
-                  />
-                  <div>
-                    <p className="font-semibold text-neutral-800">Telephone</p>
-                    <p className="text-neutral-600">
-                      +91 94434 37487 <br />
-                      +91 95786 27535 <br />
-                      +91 94432 29324 <br />
-                      +91 63857 59996 <br />
-                      04179 299723
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Media Icons */}
-              <div className="flex space-x-4 pt-4">
-                <Link
-                  href="https://www.instagram.com/shanmughainstitutions"
-                  target="_blank"
-                  aria-label="Instagram"
-                >
-                 
-                </Link>
-
-                <Link
-                  href="https://www.linkedin.com/company/sri-shanmugha-educational-institutions"
-                  target="_blank"
-                  aria-label="LinkedIn"
-                >
-
-                </Link>
-
-                <Link
-                  href="https://www.youtube.com/@G.P.PHARMACYCOLLEGETirupattur"
-                  target="_blank"
-                  aria-label="YouTube"
-                >
-                  {/* <Youtube
-                    size={20}
-                    className="text-primary hover:text-neutral-900 "
-                  /> */}
-                </Link>
-              </div>
             </div>
 
-            {/* Right Column: Contact Form */}
-            <div className="bg-neutral-50 p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold text-neutral-800 mb-6">
-                Get in Touch
-              </h3>
+            {/* Email */}
+            <div className="flex items-center space-x-3">
+              <Mail className="text-primary" size={20} />
+              <p className="text-neutral-600">
+                gppharmacycollege@gmail.com
+              </p>
+            </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-[#b1040e]"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-[#b1040e]"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-[#b1040e]"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
-                    Your Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-[#b1040e]"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-brand-red text-white py-3 rounded-md font-medium hover:bg-brand-red/90"
-                >
-                  Submit Message ➜
-                </button>
-              </form>
+            {/* Phone */}
+            <div className="flex items-start space-x-3">
+              <Phone className="text-primary mt-1" size={20} />
+              <p className="text-neutral-600 text-sm">
+                +91 94434 37487<br />
+                +91 95786 27535<br />
+                04179 299723
+              </p>
             </div>
           </div>
+
+          {/* Social Icons */}
+          <div className="flex space-x-4 pt-6">
+            <Link href="https://www.instagram.com/" target="_blank">
+              <Instagram className="text-primary hover:scale-110 transition" />
+            </Link>
+            <Link href="https://www.linkedin.com/" target="_blank">
+              <Linkedin className="text-primary hover:scale-110 transition" />
+            </Link>
+            <Link href="https://www.youtube.com/@G.P.PHARMACYCOLLEGETirupattur" target="_blank">
+              <Youtube className="text-primary hover:scale-110 transition" />
+            </Link>
+          </div>
         </div>
-      </section>
+
+        {/* RIGHT CARD */}
+        <div
+          className="
+            bg-white rounded-xl shadow-lg
+            p-8 md:p-10
+            flex flex-col justify-center
+            animate-fade-in-right
+            transition-all duration-200
+            hover:shadow-2xl hover:-translate-y-1
+          "
+        >
+          <h3 className="text-2xl font-semibold text-center text-neutral-800 mb-6">
+            Get in Touch
+          </h3>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-brand-red"
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-brand-red"
+              required
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-brand-red"
+              required
+            />
+
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-brand-red"
+              required
+            />
+
+            <button
+              type="submit"
+              className="
+                w-full bg-brand-red text-white py-3 rounded-md
+                font-medium transition
+                hover:bg-brand-red/90 hover:scale-[1.02]
+              "
+            >
+              Submit Message →
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Map Section */}
       <section className="bg-neutral-50 py-12">
